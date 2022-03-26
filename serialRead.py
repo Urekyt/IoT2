@@ -38,8 +38,8 @@ while 1:
 		logData(temp, hum)
 		print(temp, hum)
 		print(type(temp), type(hum))
-			if temp >= 40 and hum <=20:
-		Pin.output(KS0450, Pin.HIGH)
-		time.sleep(5)
-		Pin.output(KS0450, Pin.LOW)
+		if temp >= 40 and hum <=20:
+			Pin.output(KS0450, Pin.HIGH)
+			time.sleep(5)
+			Pin.output(KS0450, Pin.LOW)
 Pin.cleanup
