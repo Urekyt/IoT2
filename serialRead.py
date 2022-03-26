@@ -2,6 +2,12 @@ import time
 import serial
 import datetime
 import sqlite3
+import RPi.GPIO as Pin
+
+KS0450 = 17
+
+Pin.setmode(Pin.BCM)
+Pin.setup(KS0450, Pin.OUT)
 
 def logData(temp, hum):
 	conn = sqlite3.connect('iotData.db')
@@ -32,5 +38,10 @@ while 1:
 		temp = stringToTuple[0]
 		hum = stringToTuple[1]
 		logData(temp, hum)
+		if temp >= 40 and hum <=20:
+			Pin.output(KS0450, Pin.HIGH)
+			time.sleep(5)
+			Pin.output(KS0450, Pin.LOW)
 		print(temp, hum)
 		print(type(temp), type(hum))
+Pin.cleanup
