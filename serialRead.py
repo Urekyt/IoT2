@@ -38,10 +38,10 @@ while 1:
 		temp = stringToTuple[0]
 		hum = stringToTuple[1]
 		logData(temp, hum)
-		if temp >= 40 and hum <=20:
-			Pin.output(KS0450, Pin.HIGH)
-			time.sleep(5)
-			Pin.output(KS0450, Pin.LOW)
 		print(temp, hum)
 		print(type(temp), type(hum))
+			if temp >= 40 and hum <=20:
+		Pin.output(KS0450, Pin.HIGH)
+		time.sleep(5)
+		Pin.output(KS0450, Pin.LOW)
 Pin.cleanup
