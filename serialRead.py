@@ -31,8 +31,6 @@ ser = serial.Serial(
 while 1:
 
 	x = ser.readline().strip()
-	z = x.decode('utf-8')
-	zstr = str(z)
 	if x != b'':
 		stringToTuple = eval(x)
 		temp = stringToTuple[0]
